@@ -1,0 +1,21 @@
+# docker-compose.yml
+
+version: '3.8'
+
+services:
+
+  backend:
+    build: ./backend
+    # command: python manage.py runserver 0.0.0.0:8000
+    container_name: backend
+    image: backend
+    environment:
+      - PORT=8000
+    ports:
+      - 8000:8000
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    image: frontend
+    ports:
+      - "3000:3000"
